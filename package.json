@@ -12,6 +12,7 @@
     "faker": "^4.1.0",
     "if-env": "^1.0.4",
     "jsonwebtoken": "^8.5.1",
+    "moment": "^2.27.0",
     "mongoose": "^5.10.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
