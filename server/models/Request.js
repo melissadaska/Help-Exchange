@@ -27,7 +27,7 @@ const requestSchema = new Schema(
         toJSON: {
           getters: true
         }
-      }
+    }
 );
 
 requestSchema.virtual('requestCount').get(function() {
