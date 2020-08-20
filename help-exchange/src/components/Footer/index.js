@@ -1,0 +1,16 @@
+import React from 'react';
+
+function Footer() {   
+    return (
+    <div className="footer justify-content-between" id="footer" style={{ bottom: '0', width: '100%', padding: '2px', marginTop: '50px' }}>
+        <div style={{ float:'center'}}>
+            <img src="https://img.icons8.com/cotton/64/000000/volunteering.png"/>
+            <a href="mailto:lendahand.com">Email us at: lendahand.com</a>
+            <a href="tel:5554280940">Call us at 555-428-0940</a>
+   
+        </div>
+         </div>
+    )
+}
+
+export default Footer;
