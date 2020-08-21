@@ -26,6 +26,18 @@ function Navigation() {
                         Login
                     </p>
                 </Link>
+                <Link className='nav-link' to="/Volunteer">
+                    <p className='navcolor'>
+                    <img src="https://img.icons8.com/cotton/64/000000/volunteering.png"/>
+                        Volunteer
+                    </p>
+                </Link>
+                <Link className='nav-link' to="/RequestHelp">
+                    <p className='navcolor'>
+                    <img src="https://img.icons8.com/ios-filled/50/000000/connectivity-and-help.png"/>
+                        Request Help 
+                    </p>
+                </Link>
                 <Link className='nav-link' to="/Donations">
                     <p className='navcolor'>
                     <img src="https://img.icons8.com/ios-filled/50/000000/charity.png"/>
