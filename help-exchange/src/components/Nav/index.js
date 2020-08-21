@@ -14,12 +14,12 @@ function Navigation() {
                         About Us
                     </p>
                 </Link>
-                <Link className='nav-link' to="/contact">
+                {/* <Link className='nav-link' to="/contact">
                     <p className='navcolor'>
                         <img src="https://img.icons8.com/dusk/64/000000/moleskine.png" alt='portfolio'/>
                         Contact
                     </p>
-                </Link>
+                </Link> */}
                 <Link className='nav-link' to="/LoginForm">
                     <p className='navcolor'>
                     <img src="https://img.icons8.com/ios-filled/50/000000/login-rounded-right.png"/>
@@ -44,15 +44,10 @@ function Navigation() {
                         Donations
                     </p>
                 </Link>
-                <Link className='nav-link' to="/RequestHelp">
-                <p className='navcolor'>
-                    Request Help
-                </p>
-                </Link>
             </Nav>
 
 
     )
 }
 
-export default Navigation
+export default Navigation;
