@@ -51,8 +51,23 @@ const resolvers = {
     Mutation: {
         addUser: async (parent, args) => {
             const user = await User.create(args);
-            const toke = signToken(user);
+            const token = signToken(user);
             return { token, user };
+        },
+        deleteUser: async (parent, args, context) => {
+            if (context.user) {
+                const deletedUser = await User.findIdAndUpdate({ ...args, user: context.user.userId });
+                
+                await User.findByIdAndUpdate(
+                    { _id: userId },
+                    { $push: { user: userId._id } },
+                    { new: true }
+                );
+
+                return deletedUser
+            }
+
+            throw new AuthenticationError('You need to be logged in!');
         },
         login: async (parent, { email, password }) => {
             const user = await User.findOne({ email });

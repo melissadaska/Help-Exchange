@@ -13,7 +13,7 @@ const userSchema = new Schema(
             type: String,
             required: true,
             unique: true,
-            match: [/.+@.\..+/, 'Must match an email address!']
+            // match: [/.+@.\..+/, 'Must match an email address!']
         },
         password: {
             type: String,
@@ -29,7 +29,7 @@ const userSchema = new Schema(
             required: true
         },
         number: {
-            type: Number,
+            type: String,
             required: true
         },
         requests: [
