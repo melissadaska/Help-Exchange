@@ -4,7 +4,7 @@ import ApolloClient from 'apollo-boost';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Navbar from './components/Nav';
 import About from './components/About';
-import Contact from './components/Contact';
+// import Contact from './components/Contact';
 import Donations from './components/Donations';
 import Footer from './components/Footer';
 // import Header from './components/Header';

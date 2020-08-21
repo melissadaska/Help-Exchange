@@ -4,7 +4,7 @@ import { Form, Button } from 'react-bootstrap';
 // import { loginUser } from '../utils/API';
 // import Auth from '../utils/auth';
 
-function LoginForm() {
+function LoginForm () {
   // const [userFormData, setUserFormData] = useState({ email: '', password: '' });
   // const [validated] = useState(false);
   // const [showAlert, setShowAlert] = useState(false);
@@ -53,7 +53,7 @@ function LoginForm() {
         <Alert dismissible onClose={() => setShowAlert(false)} show={showAlert} variant='danger'>
           Something went wrong with your login credentials!
         </Alert> */}
-        <Form.Group>
+        <Form.Group className="col-md-4 mx-auto">
           <Form.Label htmlFor='email'>Email</Form.Label>
           <Form.Control
             type='text'
@@ -66,7 +66,7 @@ function LoginForm() {
           <Form.Control.Feedback type='invalid'>Email is required!</Form.Control.Feedback>
         </Form.Group>
 
-        <Form.Group>
+        <Form.Group className="col-md-4 mx-auto">
           <Form.Label htmlFor='password'>Password</Form.Label>
           <Form.Control
             type='password'
@@ -78,12 +78,14 @@ function LoginForm() {
           />
           <Form.Control.Feedback type='invalid'>Password is required!</Form.Control.Feedback>
         </Form.Group>
-        <Button
-          // disabled={!(userFormData.email && userFormData.password)}
-          type='submit'
-          variant='success'>
-          Submit
-        </Button>
+        <Form.Group className="col-md-4 mx-auto">
+          <Button 
+            // disabled={!(userFormData.email && userFormData.password)}
+            type='submit'
+            variant='primary'>
+            Submit
+          </Button>
+        </Form.Group>
       </Form>
     </>
   );
