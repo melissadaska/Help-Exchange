@@ -1,4 +1,5 @@
 import React from 'react';
+
 import VolunteerBanner from './volunteer-banner.jpg';
 import './about.scss';
 
@@ -19,3 +20,9 @@ function About() {
 }
 
 export default About;
+
+
+
+
+
+

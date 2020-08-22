@@ -16,7 +16,10 @@ function Navigation() {
                 </Navbar.Brand>
                 <Link className='nav-link' to="/about">
                     <p className='navcolor'>
-                        <img src="https://img.icons8.com/clouds/100/000000/about.png" alt='about' />
+
+
+                    <img src="https://img.icons8.com/ios-filled/50/000000/info.png"/>
+
                         About Us
                     </p>
                 </Link>
@@ -56,4 +59,7 @@ function Navigation() {
     )
 }
 
+
+
 export default Navigation;
+
