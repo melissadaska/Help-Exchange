@@ -44,23 +44,23 @@ export const DELETE_USER = gql`
   }
 `;
 
-export const ADD_REQUEST = gql`
-  mutation addRequest($username: String!, $title: String!)
-    addRequest(username: $username, title: $title) {
-        _id
-        title
-        why
-        createdAt
-        username
-    }
-`
+// export const ADD_REQUEST = gql`
+//   mutation addRequest($username: String!, $title: String!)
+//     addRequest(username: $username, title: $title) {
+//         _id
+//         title
+//         why
+//         createdAt
+//         username
+//     }
+// `
 
-export const ADD_VOLUNTEER = gql`
-    mutation addVolunteer($userId: ID!) {
-        addVolunteer(userId: $userId) {
-            _id
-            username
-            available
-        }
-    }
-`
+// export const ADD_VOLUNTEER = gql`
+//     mutation addVolunteer($userId: ID!) {
+//         addVolunteer(userId: $userId) {
+//             _id
+//             username
+//             available
+//         }
+//     }
+// `

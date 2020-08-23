@@ -3,7 +3,7 @@ import { useMutation } from '@apollo/react-hooks';
 import { ADD_USER } from '../utils/mutations';
 import Auth from '../utils/auth';
 
-const Signup = () => {
+function Signup() {
   const [formState, setFormState] = useState({ username: '', email: '', password: '', name: '', location: '', number: '' });
 
   const [addUser, { error }] = useMutation(ADD_USER);
@@ -43,7 +43,7 @@ const Signup = () => {
             <form onSubmit={handleFormSubmit}>
               <input
                 className='form-input'
-                placeholder='Your username'
+                placeholder='Username'
                 name='username'
                 type='username'
                 id='username'
@@ -52,7 +52,7 @@ const Signup = () => {
               />
               <input
                 className='form-input'
-                placeholder='Your email'
+                placeholder='Email'
                 name='email'
                 type='email'
                 id='email'
@@ -61,7 +61,7 @@ const Signup = () => {
               />
               <input
                 className='form-input'
-                placeholder='******'
+                placeholder='Password'
                 name='password'
                 type='password'
                 id='password'
@@ -70,7 +70,7 @@ const Signup = () => {
               />
               <input
                 className='form-input'
-                placeholder='******'
+                placeholder='Name'
                 name='name'
                 type='name'
                 id='name'
@@ -79,7 +79,7 @@ const Signup = () => {
               />
               <input
                 className='form-input'
-                placeholder='******'
+                placeholder='Location'
                 name='location'
                 type='location'
                 id='location'
@@ -88,7 +88,7 @@ const Signup = () => {
               />
               <input
                 className='form-input'
-                placeholder='******'
+                placeholder='Number'
                 name='number'
                 type='number'
                 id='number'

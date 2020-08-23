@@ -1,40 +1,39 @@
-// import React from 'react';
-// import { useParams } from 'react-router-dom';
-// import { useQuery } from '@apollo/react-hooks';
-// import { QUERY_THOUGHT } from '../utils/queries';
-// import ReactionList from '../components/ReactionList';
+import React from 'react';
+import { useParams } from 'react-router-dom';
+import { useQuery } from '@apollo/react-hooks';
+import { QUERY_REQUEST } from '../utils/queries';
+import RequestList from '../components/RequestList';
 
-// const SingleThought = props => {
+function SingleRequest (props) {
 
-//   const { id: thoughtId } = useParams();
+  const { id: requestId } = useParams();
 
-//   const { loading, data } = useQuery(QUERY_THOUGHT, {
-//     variables: { id: thoughtId }
-//   });
+  const { loading, data } = useQuery(QUERY_REQUEST, {
+    variables: { id: requestId }
+  });
   
-//   const thought = data?.thought || {};
+  const request = data?.request || {};
   
-//   if (loading) {
-//     return <div>Loading...</div>;
-//   }
+  if (loading) {
+    return <div>Loading...</div>;
+  }
 
-//   return (
-//     <div>
-//       <div className="card mb-3">
-//         <p className="card-header">
-//           <span style={{ fontWeight: 700 }} className="text-light">
-//             {thought.username}
-//           </span>{' '}
-//           thought on {thought.createdAt}
-//         </p>
-//         <div className="card-body">
-//           <p>{thought.thoughtText}</p>
-//         </div>
-//       </div>
+  return (
+    <div>
+      <div className="card mb-3">
+        <p className="card-header">
+          <span style={{ fontWeight: 700 }} className="text-light">
+            {request.username}
+          </span>{' '}
+          request on {request.createdAt}
+        </p>
+        <div className="card-body">
+          <p>{request.why}</p>
+        </div>
+      </div>
+      <RequestList />
+    </div>
+  );
+};
 
-//       {thought.reactionCount > 0 && <ReactionList reactions={thought.reactions} />}
-//     </div>
-//   );
-// };
-
-// export default SingleThought;
+export default SingleRequest;
