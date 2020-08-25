@@ -11,7 +11,7 @@ function Navigation() {
       };
 
     return (
-        <Navbar>
+        <Navbar className="mr-auto">
             <Navbar.Brand href="/">
                 <img 
                     src="https://img.icons8.com/cotton/64/000000/volunteering.png" 
@@ -21,7 +21,7 @@ function Navigation() {
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
-            <Nav className="mr-auto">
+            <Nav className="">
                 <Nav.Link className='nav-link' to="/about">
                     <img 
                         src="https://img.icons8.com/ios-filled/50/000000/info.png"
@@ -31,34 +31,6 @@ function Navigation() {
                         />
                         About Us
                 </Nav.Link>
-                <NavDropdown title="Login" id="login" className="align-self-center">
-                        {Auth.loggedIn() ? (
-                                <>
-                                <NavDropdown.Item href="/profile">Me</NavDropdown.Item>
-                                <NavDropdown.Item href="/" onClick={logout}>
-                                    Logout
-                                </NavDropdown.Item>
-                                </>
-                            ) : (
-                                <>
-                                <NavDropdown.Item href="/login">
-                                        <img src="https://img.icons8.com/ios-filled/50/000000/login-rounded-right.png"
-                                        alt='login'
-                                        width='50'
-                                        height='50'/>
-                                            Login
-                                </NavDropdown.Item>
-                                <NavDropdown.Item href="/signup">
-                                        <img src="https://img.icons8.com/ios-filled/50/000000/login-rounded-right.png"
-                                        alt='login'
-                                        width='50'
-                                        height='50'
-                                        />
-                                            Sign Up
-                                </NavDropdown.Item>
-                                </>
-                            )}
-                    </NavDropdown>
                 <Nav.Link className='nav-link' href="/Volunteer">
                     <img src="https://img.icons8.com/cotton/64/000000/volunteering.png"
                     alt='volunteer'
@@ -82,6 +54,34 @@ function Navigation() {
                     />
                         Donations
                 </Nav.Link>
+                <NavDropdown title="Login" id="login" className="align-self-center">
+                        {Auth.loggedIn() ? (
+                                <>
+                                <NavDropdown.Item href="/profile">Me</NavDropdown.Item>
+                                <NavDropdown.Item href="/" onClick={logout}>
+                                    Logout
+                                </NavDropdown.Item>
+                                </>
+                            ) : (
+                                <>
+                                <NavDropdown.Item href="/login">
+                                        {/* <img src="https://img.icons8.com/ios-filled/50/000000/login-rounded-right.png"
+                                        alt='login'
+                                        width='50'
+                                        height='50'/> */}
+                                            Login
+                                </NavDropdown.Item>
+                                <NavDropdown.Item href="/signup">
+                                        {/* <img src="https://img.icons8.com/ios-filled/50/000000/login-rounded-right.png"
+                                        alt='login'
+                                        width='50'
+                                        height='50'
+                                        /> */}
+                                            Sign Up
+                                </NavDropdown.Item>
+                                </>
+                            )}
+                    </NavDropdown>
                 </Nav>
             </Navbar.Collapse>
         </Navbar>
