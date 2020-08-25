@@ -3,14 +3,17 @@ import { ApolloProvider } from '@apollo/react-hooks';
 import ApolloClient from 'apollo-boost';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Navbar from './components/Nav';
-import About from './components/About';
+import Home from './pages/Home';
+import About from './pages/About';
 // import Contact from './components/Contact';
-import Donations from './components/Donations';
+import Donations from './pages/Donations';
 import Footer from './components/Footer';
 // import Header from './components/Header';
-import LoginForm from './components/LoginForm';
-import RequestHelp from './components/RequestHelp';
-import Volunteer from './components/Volunteer';
+import Login from './pages/Login';
+import Profile from './pages/Profile';
+import Signup from './pages/Signup';
+import SingleRequest from './pages/SingleRequest';
+
 
 
 
@@ -34,12 +37,13 @@ function App() {
           <>
             <Navbar />
             <Switch>
-              <Route exact path="/" component={About} />
+              <Route exact path="/" component={Home} />
               <Route exact path="/about" component={About} />
               <Route exact path="/donations" component={Donations} />
-              <Route exact path="/loginform" component={LoginForm} />
-              <Route exact path="/requesthelp" component={RequestHelp} />
-              <Route exact path="/volunteer" component={Volunteer} />
+              <Route exact path="/login" component={Login} />
+              <Route exact path="/signup" component={Signup} />
+              <Route exact path="/request" component={SingleRequest} />
+              <Route exact path="/profile/:username?" component={Profile} />
 
               {/* <Route component={NoMatch} /> */}
             </Switch>
