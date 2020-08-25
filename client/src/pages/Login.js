@@ -38,7 +38,7 @@ function Login(props) {
           <div className='card-body'>
             <Form.Group onSubmit={handleFormSubmit}>
               <Form.Label>Email address</Form.Label>
-              <Form.Control type="email" placeholder="name@example.com" id="email" value={loginState.email} onChange={handleChange} />
+              <Form.Control type="email" placeholder="name@example.com" name='email' id="email" value={loginState.email} onChange={handleChange} />
             </Form.Group>
             <Form.Group>
               <Form.Label>Password</Form.Label>

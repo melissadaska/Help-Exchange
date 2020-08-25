@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
-
 import { useMutation } from '@apollo/react-hooks';
 import { ADD_REQUEST } from '../../utils/mutations';
-
 import { QUERY_REQUESTS, QUERY_ME } from '../../utils/queries';
 
 const RequestForm = () => {

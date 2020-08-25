@@ -21,7 +21,7 @@ function Navigation() {
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="">
-                <Nav.Link className='nav-link' to="/about">
+                <Nav.Link className='nav-link' href="/about">
                     <img 
                         src="https://img.icons8.com/ios-filled/50/000000/info.png"
                         alt='about'

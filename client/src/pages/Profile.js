@@ -1,26 +1,27 @@
 import React from 'react';
-import { Redirect, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 import RequestList from '../components/RequestList';
+import RequestForm from '../components/RequestForm';
 
 import { useQuery } from '@apollo/react-hooks';
-import { QUERY_ME } from '../utils/queries';
+import { QUERY_USER, QUERY_ME } from '../utils/queries';
 
-import Auth from '../utils/auth';
+// import Auth from '../utils/auth';
 
 function Profile() {
   const { username: userParam } = useParams();
 
-  const { loading, data } = useQuery( QUERY_ME, {
-    variables: { username: userParam }
+  const { loading, data} = useQuery( userParam ? QUERY_USER : QUERY_ME, {
+    variables: {username: userParam}
   });
 
   const user = data?.me || data?.user || {};
 
   // redirect to personal profile page if username is the logged-in user's
-  if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
-    return <Redirect to="/profile" />;
-  }
+  // if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
+  //   return <Redirect to="/profile" />;
+  // }
 
   if (loading) {
     return <div>Loading...</div>;
@@ -47,6 +48,7 @@ function Profile() {
           <RequestList requests={user.requests} title={`${user.username}'s requests...`} />
         </div>
       </div>
+      <div className="mb-3"> {!userParam && <RequestForm/>}</div>
     </div>
   );
 };

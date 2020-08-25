@@ -25,6 +25,10 @@ const RequestList = ({ requests, title }) => {
             <div className="card-body">
               <Link to={`/request/${request._id}`}>
                 <p>{request.why}</p>
+                {/* <p className="mb-0">
+                    Reactions: {thought.reactionCount} || Click to{''}
+                    {thought.reactionCount ? 'see' : 'start'} the discussion!
+                </p> */}
               </Link>
             </div>
           </div>
