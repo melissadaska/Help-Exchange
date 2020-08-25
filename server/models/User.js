@@ -20,18 +20,18 @@ const userSchema = new Schema(
             required: true,
             minlength: 6
         },
-        name: {
-            type: String,
-            required: true
-        },
-        location: {
-            type: String,
-            required: true
-        },
-        number: {
-            type: String,
-            required: true
-        },
+        // name: {
+        //     type: String,
+        //     required: true
+        // },
+        // location: {
+        //     type: String,
+        //     required: true
+        // },
+        // number: {
+        //     type: String,
+        //     required: true
+        // },
         requests: [
             {
                 type: Schema.Types.ObjectId,

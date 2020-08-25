@@ -6,9 +6,6 @@ export const QUERY_ME = gql`
             _id
             username
             email
-            name
-            location
-            number
             requests {
                 _id
                 title
@@ -31,9 +28,6 @@ export const QUERY_ME_BASIC = gql`
             _id
             username
             email
-            name
-            location
-            number
             volunteer {
                 _id
                 username

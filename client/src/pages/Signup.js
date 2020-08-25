@@ -5,7 +5,7 @@ import { ADD_USER } from '../utils/mutations';
 import Auth from '../utils/auth';
 
 function Signup() {
-  const [formState, setFormState] = useState({ username: '', email: '', password: '', name: '', location: '', number: '' });
+  const [formState, setFormState] = useState({ username: '', email: '', password: ''});
 
   const [addUser, { error }] = useMutation(ADD_USER);
 
@@ -69,7 +69,7 @@ function Signup() {
                 value={formState.password}
                 onChange={handleChange}
               />
-              <input
+              {/* <input
                 className='form-input'
                 placeholder='Name'
                 name='name'
@@ -91,11 +91,10 @@ function Signup() {
                 className='form-input'
                 placeholder='Number'
                 name='number'
-                type='number'
                 id='number'
                 value={formState.number}
                 onChange={handleChange}
-              />
+              /> */}
               <button className='btn d-block w-100' type='submit'>
                 Submit
               </button>

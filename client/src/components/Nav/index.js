@@ -1,75 +1,89 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
-
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-// import Auth from '../../utils/auth';
+import { Nav, Navbar, NavDropdown } from 'react-bootstrap'
+import Auth from '../../utils/auth';
 
 function Navigation() {
 
-    // const logout = event => {
-    //     event.preventDefault();
-    //     Auth.logout();
-    //   };
+    const logout = event => {
+        event.preventDefault();
+        Auth.logout();
+      };
 
     return (
-        <Nav className="mr-auto">
-            <div className="container flex-row justify-space-between-lg justify-center align-center">
-            <Navbar.Brand>
-            <Link to="/">
-            <p className='navcolor'>
-            <img src="https://img.icons8.com/cotton/64/000000/volunteering.png" alt='help-exchange' />
-                Help Exchange
-            </p>
-            </Link>
+        <Navbar className="mr-auto">
+            <Navbar.Brand href="/">
+                <img 
+                    src="https://img.icons8.com/cotton/64/000000/volunteering.png" 
+                    alt='help-exchange'
+                    className="justify-space-between"
+                />
             </Navbar.Brand>
-            {/* <nav className="text-center">
-                {Auth.loggedIn() ? (
-                    <>
-                    <Link to="/profile">Me</Link>
-                    <a href="/" onClick={logout}>
-                        Logout
-                    </a>
-                    </>
-                ) : (
-                    <>
-                    <Link to="/login">Login</Link>
-                    <Link to="/signup">Signup</Link>
-                    </>
-                )}
-                </nav> */}
-            </div>
-            <Link className='nav-link' to="/about">
-                <p className='navcolor'>
-                <img src="https://img.icons8.com/ios-filled/50/000000/info.png" alt='about'/>
-                    About Us
-                </p>
-            </Link>
-            <Link className='nav-link' to="/LoginForm">
-                <p className='navcolor'>
-                <img src="https://img.icons8.com/ios-filled/50/000000/login-rounded-right.png" alt='login'/>
-                    Login
-                </p>
-            </Link>
-            <Link className='nav-link' to="/Volunteer">
-                <p className='navcolor'>
-                <img src="https://img.icons8.com/cotton/64/000000/volunteering.png" alt='volunteer'/>
-                    Volunteer
-                </p>
-            </Link>
-            <Link className='nav-link' to="/RequestHelp">
-                <p className='navcolor'>
-                <img src="https://img.icons8.com/ios-filled/50/000000/connectivity-and-help.png" alt='request-help'/>
-                    Request Help 
-                </p>
-            </Link>
-            <Link className='nav-link' to="/Donations">
-                <p className='navcolor'>
-                <img src="https://img.icons8.com/ios-filled/50/000000/charity.png" alt='donations'/>
-                    Donations
-                </p>
-            </Link>
-        </Nav>
+            <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+            <Navbar.Collapse id="responsive-navbar-nav">
+            <Nav className="">
+                <Nav.Link className='nav-link' to="/about">
+                    <img 
+                        src="https://img.icons8.com/ios-filled/50/000000/info.png"
+                        alt='about'
+                        width='50'
+                        height='50'
+                        />
+                        About Us
+                </Nav.Link>
+                <Nav.Link className='nav-link' href="/Volunteer">
+                    <img src="https://img.icons8.com/cotton/64/000000/volunteering.png"
+                    alt='volunteer'
+                    width='50'
+                    height='50'/>
+                        Volunteer
+                </Nav.Link>
+                <Nav.Link className='nav-link' href="/request">
+                    <img src="https://img.icons8.com/ios-filled/50/000000/connectivity-and-help.png"
+                    alt='request-help'
+                    width='50'
+                    height='50'
+                    />
+                        Request Help 
+                </Nav.Link>
+                <Nav.Link className='nav-link' href="/donations">
+                    <img src="https://img.icons8.com/ios-filled/50/000000/charity.png"
+                    alt='donations'
+                    width='50'
+                    height='50'
+                    />
+                        Donations
+                </Nav.Link>
+                <NavDropdown title="Login" id="login" className="align-self-center">
+                        {Auth.loggedIn() ? (
+                                <>
+                                <NavDropdown.Item href="/profile">Me</NavDropdown.Item>
+                                <NavDropdown.Item href="/" onClick={logout}>
+                                    Logout
+                                </NavDropdown.Item>
+                                </>
+                            ) : (
+                                <>
+                                <NavDropdown.Item href="/login">
+                                        {/* <img src="https://img.icons8.com/ios-filled/50/000000/login-rounded-right.png"
+                                        alt='login'
+                                        width='50'
+                                        height='50'/> */}
+                                            Login
+                                </NavDropdown.Item>
+                                <NavDropdown.Item href="/signup">
+                                        {/* <img src="https://img.icons8.com/ios-filled/50/000000/login-rounded-right.png"
+                                        alt='login'
+                                        width='50'
+                                        height='50'
+                                        /> */}
+                                            Sign Up
+                                </NavDropdown.Item>
+                                </>
+                            )}
+                    </NavDropdown>
+                </Nav>
+            </Navbar.Collapse>
+        </Navbar>
     )
 }
 
