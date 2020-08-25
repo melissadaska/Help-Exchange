@@ -7,9 +7,6 @@ const typeDefs = gql`
         _id: ID
         username: String
         email: String
-        name: String
-        location: String
-        number: String
         requests: [Requests]
         volunteer: [Volunteer]
     }
