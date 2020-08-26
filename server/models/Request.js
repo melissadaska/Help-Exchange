@@ -8,11 +8,6 @@ const requestSchema = new Schema(
             required: 'You must leave a request!',
             trim: true
         },
-        why: {
-            type: String,
-            required: 'false',
-            trim: 'true'
-        },
         createdAt: {
             type: Date,
             default: Date.now,

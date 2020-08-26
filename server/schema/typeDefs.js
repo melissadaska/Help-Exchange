@@ -17,7 +17,6 @@ const typeDefs = gql`
     type Requests {
         _id: ID
         title: String
-        why: String
         createdAt: String
         username: String
     }
@@ -41,7 +40,7 @@ const typeDefs = gql`
         login(email: String!, password: String!): Auth
         addUser(username: String!, email: String!, password: String!, name: String, location: String, number: String): Auth
         deleteUser(_id: ID!): User!
-        addRequest(username: String!, title: String!): Requests
+        addRequest(title: String!): Requests
         addVolunteer(userId: ID!, username: String!): User
     }
 

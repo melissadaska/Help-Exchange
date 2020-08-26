@@ -9,7 +9,6 @@ export const QUERY_ME = gql`
             requests {
                 _id
                 title
-                why
                 createdAt
                 username
             }
@@ -31,7 +30,6 @@ export const QUERY_USER = gql`
       requests {
         _id
         title
-        why
         createdAt
         username
       }
@@ -59,7 +57,6 @@ export const QUERY_REQUEST = gql`
         request(_id: $id) {
             _id
             title
-            why
             createdAt
             username
         }
@@ -71,7 +68,6 @@ export const QUERY_REQUESTS = gql`
         requests(username: $username) {
             _id
             title
-            why
             createdAt
             username
         }
