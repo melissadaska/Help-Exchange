@@ -1,13 +1,11 @@
 import React from 'react';
 import { Redirect, useParams } from 'react-router-dom';
-
+import { Card, Button, ListGroup, Form } from 'react-bootstrap';
 import RequestList from '../components/RequestList';
 import RequestForm from '../components/RequestForm';
 import Auth from '../utils/auth';
 import { useQuery } from '@apollo/react-hooks';
 import { QUERY_USER, QUERY_ME } from '../utils/queries';
-
-// import Auth from '../utils/auth';
 
 function Profile() {
   const { username: userParam } = useParams();
@@ -36,21 +34,27 @@ function Profile() {
   }
 
   return (
-    <div>
-      <div className="flex-row mb-3">
-        <h2 className="bg-dark text-secondary p-3 display-inline-block">
-          Viewing {userParam ? `${user.username}'s` : 'your'} profile.
-          test {userParam ? `${user.name}` : 'your'} test
-        </h2>
-      </div>
-
-      <div className="flex-row justify-space-between mb-3">
-        <div className="col-12 mb-3 col-lg-8">
+    <Card className="w-75 ml-5 bg-secondary">
+      <Card.Header className="bg-dark text-secondary p-3 display-inline-block">
+        Viewing {userParam ? `${user.username}'s` : 'your'} profile.
+      </Card.Header>
+      <Card.Title className="text-center justify-content-center mt-2">{userParam ? `${user.username}'s` : `${user.username} Personal Information`}</Card.Title>
+          <Card.Body className="justify-content-center w-50">
+          <ListGroup className="list-group">
+            <Form.Text className="">Name</Form.Text>
+              <ListGroup.Item>{user.name}</ListGroup.Item>
+            <Form.Text className="">Location</Form.Text>
+              <ListGroup.Item>{user.location}</ListGroup.Item>
+            <Form.Text className="">Phone Number</Form.Text>
+              <ListGroup.Item>{user.number}</ListGroup.Item>
+          </ListGroup>
+          </Card.Body>
+        
+        <Card.Body className="col-12 mb-3 col-lg-8">
           <RequestList requests={user.requests} title={`${user.username}'s requests...`} />
-        </div>
-      </div>
-      <div className="mb-3"> {!userParam && <RequestForm/>}</div>
-    </div>
+        </Card.Body>
+      <Card.Body className="mb-3"> {!userParam && <RequestForm/>}</Card.Body>
+      </Card>
   );
 };
 
