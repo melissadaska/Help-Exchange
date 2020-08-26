@@ -33,8 +33,9 @@ function SingleRequest (props) {
           <p>{request.title}</p>
         </div>
       </div>
-      {request.volunteerCount > 0 && <VolunteerList volunteers={request.volunteers}/>}
-       {Auth.loggedIn() && <VolunteerForm requestId={request._id}/>}
+
+      {request.volunteerCount > 0 && <VolunteerList volunteers={request.volunteers} />}
+       {Auth.loggedIn() && <VolunteerForm requestId={request._id} />}
     </div>
   );
 };

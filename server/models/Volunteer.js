@@ -1,4 +1,4 @@
-const { Schema, model } = require('mongoose');
+const { Schema } = require('mongoose');
 const moment = require('moment');
 
 const volunteerSchema = new Schema(

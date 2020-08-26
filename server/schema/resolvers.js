@@ -93,7 +93,7 @@ const resolvers = {
             if (context.user) {
                 const updatedRequest = await Request.findOneAndUpdate(
                     { _id: requestId },
-                    { $push: { volunteers: { volunteerBody, username: context.user.username, available } } },
+                    { $push: { volunteers: { volunteerBody, username: context.user.username } } },
                     { new: true, runValidators: true }
                 );
 

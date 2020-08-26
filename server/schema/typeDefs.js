@@ -10,9 +10,9 @@ const typeDefs = gql`
         name: String
         location: String
         number: String
-        requests: [Requests]
+        requests: [Request]
     }
-    type Requests {
+    type Request {
         _id: ID
         title: String
         createdAt: String
@@ -30,15 +30,15 @@ const typeDefs = gql`
         me: User
         users: [User]
         user(username: String!): User
-        requests(username: String): [Requests]
-        request(_id: ID!): [Requests]
+        requests(username: String): [Request]
+        request(_id: ID!): Request
     }
     type Mutation {
         login(email: String!, password: String!): Auth
         addUser(username: String!, email: String!, password: String!, name: String, location: String, number: String): Auth
         deleteUser(_id: ID!): User!
-        addRequest(title: String!): Requests
-        addVolunteer(requestId: ID!, reactionBody: String!): Requests
+        addRequest(title: String!): Request
+        addVolunteer(requestId: ID!, volunteerBody: String!): Request
     }
     type Auth {
         token: ID!
