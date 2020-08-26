@@ -54,12 +54,16 @@ export const ADD_REQUEST = gql`
     }
 `
 
-// export const ADD_VOLUNTEER = gql`
-//     mutation addVolunteer($userId: ID!) {
-//         addVolunteer(userId: $userId) {
-//             _id
-//             username
-//             available
-//         }
-//     }
-// `
+export const ADD_VOLUNTEER = gql`
+    mutation addVolunteer($userId: ID!, $volunteerBody: String!) {
+        addVolunteer(userId: $userId, volunteerBody: $volunteerBody) {
+            _id
+            volunteer {
+              _id
+              volunteerBody
+              createAt
+              username
+            }
+        }
+    }
+`
