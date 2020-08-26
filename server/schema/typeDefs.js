@@ -17,15 +17,14 @@ const typeDefs = gql`
     type Requests {
         _id: ID
         title: String
-        why: String
         createdAt: String
         username: String
     }
 
     type Volunteer {
         _id: ID
-        username: String
-        available: String
+        volunteerBody: String
+        createdAt: String
     }
 
     type Query {

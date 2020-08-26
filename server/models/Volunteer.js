@@ -3,11 +3,16 @@ const moment = require('moment');
 
 const volunteerSchema = new Schema(
     {
+        volunteerBody: {
+            type: String,
+            required: true,
+            maxlength: 280
+        },
         username: {
             type: String,
             required: true
         },
-        available: {
+        createdAt: {
             type: Date,
             default: Date.now,
             get: timestamp => moment(timestamp).format('MMM Do, YYYY [at] hh:mm a')
