@@ -28,7 +28,7 @@ function SingleRequest (props) {
           request on {request.createdAt}
         </p>
         <div className="card-body">
-          <p>{request.why}</p>
+          <p>{request.title}</p>
         </div>
       </div>
       {/* <RequestList /> */}
