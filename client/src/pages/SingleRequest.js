@@ -2,7 +2,9 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/react-hooks';
 import { QUERY_REQUEST } from '../utils/queries';
-import RequestList from '../components/RequestList';
+import VolunteerForm from '../components/VolunteerForm';
+import VolunteerList from '../components/VolunteerList';
+import Auth from '../utils/auth';
 
 function SingleRequest (props) {
 
@@ -31,7 +33,8 @@ function SingleRequest (props) {
           <p>{request.why}</p>
         </div>
       </div>
-      <RequestList />
+      {thought.reactionCount > 0 && <VolunteerList reactions={thought.reactions} />}
+      {Auth.loggedIn() && <VolunteerForm thoughtId={thought._id} />}
     </div>
   );
 };

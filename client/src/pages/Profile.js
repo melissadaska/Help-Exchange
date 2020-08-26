@@ -1,11 +1,8 @@
 import React from 'react';
 import { Redirect, useParams } from 'react-router-dom';
-
 import RequestList from '../components/RequestList';
-
 import { useQuery } from '@apollo/react-hooks';
 import { QUERY_ME } from '../utils/queries';
-
 import Auth from '../utils/auth';
 
 function Profile() {

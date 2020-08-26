@@ -45,13 +45,14 @@ export const DELETE_USER = gql`
 `;
 
 export const ADD_REQUEST = gql`
-  mutation addRequest($title: String!)
+  mutation addRequest($title: String!) {
     addRequest(title: $title) {
         _id
         title
         createdAt
         username
     }
+  }
 `
 
 export const ADD_VOLUNTEER = gql`
