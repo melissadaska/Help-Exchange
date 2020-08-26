@@ -12,7 +12,7 @@ import Footer from './components/Footer';
 import Login from './pages/Login';
 import Profile from './pages/Profile';
 import Signup from './pages/Signup';
-import SingleRequest from './pages/SingleRequest';
+import Request from './pages/Request';
 
 
 
@@ -42,7 +42,7 @@ function App() {
               <Route exact path="/donations" component={Donations} />
               <Route exact path="/login" component={Login} />
               <Route exact path="/signup" component={Signup} />
-              <Route exact path="/request" component={SingleRequest} />
+              <Route exact path="/request" component={Request} />
               <Route exact path="/profile/:username?" component={Profile} />
 
               {/* <Route component={NoMatch} /> */}

@@ -42,7 +42,6 @@ export const QUERY_REQUEST = gql`
         request(_id: $id) {
             _id
             title
-            why
             createdAt
             username
         }

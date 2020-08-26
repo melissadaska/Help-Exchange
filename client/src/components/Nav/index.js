@@ -37,7 +37,7 @@ function Navigation() {
                     height='50'/>
                         Volunteer
                 </Nav.Link>
-                <Nav.Link className='nav-link' href="/RequestHelp">
+                <Nav.Link className='nav-link' href="/Request">
                     <img src="https://img.icons8.com/ios-filled/50/000000/connectivity-and-help.png"
                     alt='request-help'
                     width='50'
