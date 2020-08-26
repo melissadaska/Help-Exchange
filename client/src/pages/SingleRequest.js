@@ -2,8 +2,8 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/react-hooks';
 import { QUERY_REQUEST } from '../utils/queries';
-import VolunteerForm from '../components/VolunteerForm';
 import VolunteerList from '../components/VolunteerList';
+import VolunteerForm from '../components/VolunteerForm';
 import Auth from '../utils/auth';
 
 function SingleRequest (props) {
@@ -30,11 +30,12 @@ function SingleRequest (props) {
           request on {request.createdAt}
         </p>
         <div className="card-body">
-          <p>{request.why}</p>
+          <p>{request.title}</p>
         </div>
       </div>
-      {thought.reactionCount > 0 && <VolunteerList reactions={thought.reactions} />}
-      {Auth.loggedIn() && <VolunteerForm thoughtId={thought._id} />}
+
+      {request.volunteerCount > 0 && <VolunteerList volunteers={request.volunteers} />}
+       {Auth.loggedIn() && <VolunteerForm requestId={request._id} />}
     </div>
   );
 };

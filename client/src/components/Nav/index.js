@@ -21,7 +21,7 @@ function Navigation() {
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="">
-                <Nav.Link className='nav-link' to="/about">
+                <Nav.Link className='nav-link' href="/about">
                     <img 
                         src="https://img.icons8.com/ios-filled/50/000000/info.png"
                         alt='about'
@@ -37,7 +37,7 @@ function Navigation() {
                     height='50'/>
                         Volunteer
                 </Nav.Link>
-                <Nav.Link className='nav-link' href="/Request">
+                <Nav.Link className='nav-link' href="/request">
                     <img src="https://img.icons8.com/ios-filled/50/000000/connectivity-and-help.png"
                     alt='request-help'
                     width='50'
@@ -45,7 +45,7 @@ function Navigation() {
                     />
                         Request Help 
                 </Nav.Link>
-                <Nav.Link className='nav-link' href="/Donations">
+                <Nav.Link className='nav-link' href="/donations">
                     <img src="https://img.icons8.com/ios-filled/50/000000/charity.png"
                     alt='donations'
                     width='50'
@@ -53,7 +53,7 @@ function Navigation() {
                     />
                         Donations
                 </Nav.Link>
-                <NavDropdown title="Login" id="login" className="align-self-center">
+                <NavDropdown title="Account" id="login" className="align-self-center">
                         {Auth.loggedIn() ? (
                                 <>
                                 <NavDropdown.Item href="/profile">Me</NavDropdown.Item>

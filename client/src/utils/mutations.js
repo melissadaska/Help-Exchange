@@ -13,7 +13,7 @@ export const LOGIN_USER = gql`
 `;
 
 export const ADD_USER = gql`
-  mutation addUser($username: String!, $email: String!, $password: String!, $name: String!, $location: String!, $number: String!) {
+  mutation addUser($username: String!, $email: String!, $password: String!, $name: String, $location: String, $number: String) {
     addUser(username: $username, email: $email, password: $password, name: $name, location: $location, number: $number) {
       token
       user {
@@ -28,21 +28,21 @@ export const ADD_USER = gql`
   }
 `;
 
-export const DELETE_USER = gql`
-  mutation deleteUser($userId: ID!) {
-    deleteUser(userId: $userId) {
-      token
-      user {
-        _id
-        username
-        email
-        name
-        location
-        number
-      }
-    }
-  }
-`;
+// export const DELETE_USER = gql`
+//   mutation deleteUser($userId: ID!) {
+//     deleteUser(userId: $userId) {
+//       token
+//       user {
+//         _id
+//         username
+//         email
+//         name
+//         location
+//         number
+//       }
+//     }
+//   }
+// `;
 
 export const ADD_REQUEST = gql`
   mutation addRequest($title: String!) {
@@ -51,18 +51,23 @@ export const ADD_REQUEST = gql`
         title
         createdAt
         username
+        volunteerCount
+        volunteers {
+          _id
+        }
     }
   }
 `
 
 export const ADD_VOLUNTEER = gql`
-    mutation addVolunteer($userId: ID!, $volunteerBody: String!) {
-        addVolunteer(userId: $userId, volunteerBody: $volunteerBody) {
+    mutation addVolunteer($requestId: ID!, $volunteerBody: String!) {
+        addVolunteer(requestId: $requestId, volunteerBody: $volunteerBody) {
             _id
-            volunteer {
+            volunteerCount
+            volunteers {
               _id
               volunteerBody
-              createAt
+              createdAt
               username
             }
         }

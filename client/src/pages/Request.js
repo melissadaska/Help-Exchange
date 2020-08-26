@@ -1,143 +1,48 @@
 import React from 'react';
-// import { validateEmail } from '../../utils/helpers';
+import { useQuery } from '@apollo/react-hooks';
+import RequestList from '../components/RequestList';
+import { QUERY_REQUESTS } from '../utils/queries';
+import Auth from '../utils/auth';
+import RequestForm from '../components/RequestForm';
 
-function RequestHelp() {   
-    // const [formState, setFormState] = useState({ name: '', email: '', message: '' });
-    // const { name, email, message } = formState;
-    // const [errorMessage, setErrorMessage] = useState('');
 
-    // function handleChange(e) {
-    //     if (e.target.name === 'email') {
-    //         const isValid = validateEmail(e.target.value);
-    //         console.log(isValid);
-    //         // isValid conditional statement
-    //         if (!isValid) {
-    //             setErrorMessage('Your email is invalid.');
-    //         } else {
-    //             setErrorMessage('');
-    //         }
-    //     } else {
-    //         if (!e.target.value.length) {
-    //           setErrorMessage(`${e.target.name} is required.`);
-    //         } else {
-    //           setErrorMessage('');
-    //         }
-    //       }
-    //       console.log('errorMessage', errorMessage);
+function Home() {
+    const loggedIn = Auth.loggedIn();
+    // use useQuery hook to make query request
+    const { loading, data } = useQuery(QUERY_REQUESTS);
+    const requests = data?.requests || [];
+    console.log(requests);
 
-    //     if (!errorMessage) {
-    //     setFormState({ ...formState, [e.target.name]: e.target.value });
-    //     }
-    // }
-
-    // function handleSubmit(e) {
-    //     e.preventDefault();
-    //     console.log(formState);
-    // }
+    // use object destructuring to extract `data` from the `useQuery` Hook's response and rename it `userData` to be more descriptive
+    // const { data: userData } = useQuery(QUERY_ME);  
 
     return (
-        <div id="my-contact" className="container text-center my-5">
-            <h1>Request Help</h1>
-
-            <form id="contact-form">
-                <div className="form-group">
-                    <div className="row">
-                        <div className="col-12 col-sm-12 col-md-6 mx-auto">
-                        <label htmlFor="username"></label>
-                        <input type="text" name="username" placeholder="UserName"
-                        className="form-control form-control-lg"
-                        />
-                        </div>
-                    </div>
-                </div>
-                <div className="form-group hidden">
-                    <div className="row">
-                        <div className="col-12 col-sm-12 col-md-6 mx-auto">
-                            <div>
-                            <label htmlFor="email"></label>
-                            <input type="email" name="email" placeholder="Email Address" 
-                            className="form-control form-control-lg"
-                            />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div className="form-group hidden">
-                    <div className="row">
-                        <div className="col-12 col-sm-12 col-md-6 mx-auto">
-                            <div>
-                            <label htmlFor="password"></label>
-                            <input type="password" name="password" placeholder="Password"
-                            className="form-control form-control-lg"
-                            />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div className="form-group hidden">
-                    <div className="row">
-                        <div className="col-12 col-sm-12 col-md-6 mx-auto">
-                            <div>
-                            <label htmlFor="name"></label>
-                            <input type="name" name="name" placeholder="Name"
-                            className="form-control form-control-lg"
-                            />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div className="form-group hiddenRight">
-                    <div className="row">
-                        <div className="col-12 col-sm-12 col-md-6 mx-auto">
-                            <div>
-                            <label htmlFor="address"></label>
-                            <textarea name="address" rows="5" placeholder="Enter your address"
-                            className="form-control form-control-lg"
-                            />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div className="form-group hidden">
-                    <div className="row">
-                        <div className="col-12 col-sm-12 col-md-6 mx-auto">
-                            <div>
-                            <label htmlFor="number"></label>
-                            <textarea name="number" placeholder="Please enter your phone number."
-                            className="form-control form-control-lg"
-                            />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div className="form-group hiddenRight">
-                    <div className="row">
-                        <div className="col-12 col-sm-12 col-md-6 mx-auto">
-                            <div>
-                            <label htmlFor="request"></label>
-                            <textarea name="request" rows="7" placeholder="What do you need?"
-                            className="form-control form-control-lg"
-                            />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-
-                {/* {errorMessage && (
-                    <div>
-                        <p className="error-text">{errorMessage}</p>
-                    </div>
-                )} */}
-                <div className="row text-md-left text-sm-center">
-                    <div className="col-md-6 mx-auto">
-                        <button type="submit" className="btn btn-primary mb-2 hidden">Make Request</button>
-                    </div>
-                </div>
-            </form>
+      <main>
+        <div className='flex-row justify-space-between'>
+          {loggedIn && (
+            <div className="col-12 mb-3">
+              <RequestForm/>
+            </div>
+          )}
+          <div className={`col-12 mb-3 ${loggedIn && 'col-lg-8'}`}>
+          {loading? (
+            <div> Loading...</div>
+          ):(
+            <RequestList requests={requests} title="Requests here..."/>
+          )}
+          </div>
+          {/* {loggedIn && userData ? (
+            <div className="col-12 col-lg-3 mb-3">
+              <FriendList
+               username={userData.me.username}
+               friendCount={userData.me.friendCount}
+               friends={userData.me.friends}
+              />
+            </div>
+          ) :null} */}
         </div>
-    )
-}
+      </main>
+    );
+  };
 
-
-export default RequestHelp;
+export default Home;

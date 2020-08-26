@@ -1,19 +1,19 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const VolunteerList = ({ reactions }) => {
+const VolunteerList = ({ volunteers }) => {
   return (
 <div className="card mb-3">
     <div className="card-header">
-      <span className="text-light">Reactions</span>
+      <span className="text-light">Volunteers</span>
     </div>
     <div className="card-body">
-      {reactions &&
-        reactions.map(reaction => (
-          <p className="pill mb-3" key={reaction._id}>
-            {reaction.reactionBody} {'// '}
-            <Link to={`/profile/${reaction.username}`} style={{ fontWeight: 700 }}>
-              {reaction.username} on {reaction.createdAt}
+      {volunteers &&
+        volunteers.map(volunteer => (
+          <p className="pill mb-3" key={volunteer._id}>
+            {volunteer.volunteerBody} {'// '}
+            <Link to={`/profile/${volunteer.username}`} style={{ fontWeight: 700 }}>
+              {volunteer.username} on {volunteer.createdAt}
             </Link>
           </p>
         ))}

@@ -38,12 +38,6 @@ const userSchema = new Schema(
                 ref: 'Request'
             }
         ],
-        volunteer: [
-            {
-                type: Schema.Types.ObjectId,
-                ref: 'Volunteer'
-            }
-        ]
     },
     {
         toJSON: {

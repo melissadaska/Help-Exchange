@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const RequestList = ({ requests, title }) => {
   if (!requests.length) {
-    return <h3>No Thoughts Yet</h3>;
+    return <h3>No Requests Yet</h3>;
   }
 
   return (
@@ -20,14 +20,14 @@ const RequestList = ({ requests, title }) => {
             >
                 {request.username}
             </Link>{' '}
-            thought on {request.createdAt}
+            request on {request.createdAt}
             </p>
             <div className="card-body">
             <Link to={`/request/${request._id}`}>
-                <p>{request.thoughtText}</p>
+                <p>{request.title}</p>
                 <p className="mb-0">
-                Reactions: {request.reactionCount} || Click to{' '}
-                {request.reactionCount ? 'see' : 'start'} the discussion!
+                Volunteers: {request.volunteerCount} || Click to{' '}
+                {request.volunteerCount ? 'see' : 'start'} the discussion!
                 </p>
             </Link>
             </div>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useQuery } from '@apollo/react-hooks';
-import RequestList from '../components/Volunteer';
+// import RequestList from '../components/RequestList';
 import { QUERY_REQUESTS } from '../utils/queries';
 import Auth from '../utils/auth';
 
