@@ -51,16 +51,25 @@ export const ADD_REQUEST = gql`
         title
         createdAt
         username
+        volunteerCount
+        volunteers {
+          _id
+        }
     }
   }
 `
 
-// export const ADD_VOLUNTEER = gql`
-//     mutation addVolunteer($userId: ID!) {
-//         addVolunteer(userId: $userId) {
-//             _id
-//             username
-//             available
-//         }
-//     }
-// `
+export const ADD_VOLUNTEER = gql`
+    mutation addVolunteer($requestId: ID!, $volunteerBody: String!) {
+        addVolunteer(requestId: $requestId, volunteerBody: $volunteerBody) {
+            _id
+            volunteerCount
+            volunteers {
+              _id
+              volunteerBody
+              createdAt
+              username
+            }
+        }
+    }
+`

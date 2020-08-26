@@ -1,5 +1,6 @@
 const { Schema, model } = require('mongoose');
 const moment = require('moment');
+const volunteerSchema = require('./Volunteer');
 
 const requestSchema = new Schema(
     {
@@ -16,7 +17,8 @@ const requestSchema = new Schema(
         username: {
             type: String,
             required: true
-        }
+        },
+        volunteers: [volunteerSchema]
     },
     {
         toJSON: {
@@ -25,8 +27,8 @@ const requestSchema = new Schema(
     }
 );
 
-requestSchema.virtual('requestCount').get(function() {
-    return this.request.length;
+requestSchema.virtual('volunteerCount').get(function() {
+    return this.volunteers.length;
 });
 
 const Request = model('Request', requestSchema);

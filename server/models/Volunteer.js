@@ -3,15 +3,20 @@ const moment = require('moment');
 
 const volunteerSchema = new Schema(
     {
-        username: {
-            type: String,
-            required: true
-        },
-        available: {
-            type: Date,
-            default: Date.now,
-            get: timestamp => moment(timestamp).format('MMM Do, YYYY [at] hh:mm a')
-        }
+      volunteerBody: {
+        type: String,
+        required: true,
+        maxlength: 280
+      },
+      username: {
+          type: String,
+          required: true
+      },
+      createdAt: {
+        type: Date,
+        default: Date.now,
+        get: timestamp => moment(timestamp).format('MMM Do, YYYY [at] hh:mm a')
+      }
     },
     {
         toJSON: {
@@ -20,6 +25,6 @@ const volunteerSchema = new Schema(
       }
 );
 
-const Volunteer = model('Volunteer', volunteerSchema);
+// const Volunteer = model('Volunteer', volunteerSchema);
 
-module.exports = Volunteer;
+module.exports = volunteerSchema;

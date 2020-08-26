@@ -13,23 +13,23 @@ const RequestList = ({ requests, title }) => {
         requests.map(request => (
           <div key={request._id} className="card mb-3">
             <p className="card-header">
-              <Link
+            <Link
                 to={`/profile/${request.username}`}
                 style={{ fontWeight: 700 }}
                 className="text-light"
-              >
+            >
                 {request.username}
-              </Link>{' '}
-              request on {request.createdAt}
+            </Link>{' '}
+            request on {request.createdAt}
             </p>
             <div className="card-body">
-              <Link to={`/request/${request._id}`}>
+            <Link to={`/request/${request._id}`}>
                 <p>{request.title}</p>
-                {/* <p className="mb-0">
-                    Reactions: {thought.reactionCount} || Click to{''}
-                    {thought.reactionCount ? 'see' : 'start'} the discussion!
-                </p> */}
-              </Link>
+                <p className="mb-0">
+                Volunteers: {request.volunteerCount} || Click to{' '}
+                {request.volunteerCount ? 'see' : 'start'} the discussion!
+                </p>
+            </Link>
             </div>
           </div>
         ))}

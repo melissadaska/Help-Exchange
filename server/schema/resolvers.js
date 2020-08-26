@@ -1,4 +1,4 @@
-const { User, Request, Volunteer } = require('../models');
+const { User, Request } = require('../models');
 const { AuthenticationError } = require('apollo-server-express');
 const { signToken } = require('../utils/auth');
 
@@ -9,7 +9,6 @@ const resolvers = {
                 const userData = await User.findOne({ _id: context.user._id })
                     .select('-__v -password')
                     .populate('requests')
-                    .populate('volunteer');
 
                 return userData;
             }
@@ -25,18 +24,11 @@ const resolvers = {
         request: async (parent, { _id }) => {
             return Request.findOne({ _id });
         },
-
-        volunteer: async (parent, { username }) => {
-            const params = username ? { username } : {};
-            return Volunteer.find(params)
-        },
-
         // get all users
         users: async () => {
             return User.find()
             .select('-__v -password')
             .populate('requests')
-            .populate('volunteer');
         },
 
         // get user by username
@@ -44,7 +36,6 @@ const resolvers = {
             return User.findOne({ username })
             .select('-__v -password')
             .populate('requests')
-            .populate('volunteer');
         }
     },
 
@@ -98,15 +89,15 @@ const resolvers = {
                 return request
             }
         },
-        addVolunteer: async (parent, { userId }, context) => {
+        addVolunteer: async (parent, { requestId, volunteerBody }, context) => {
             if (context.user) {
-                const updatedUser = await User.findOneAndUpdate(
-                    { _id: userId },
-                    { $push: { volunteer: { username: context.user.username, available } } },
+                const updatedRequest = await Request.findOneAndUpdate(
+                    { _id: requestId },
+                    { $push: { volunteers: { volunteerBody, username: context.user.username, available } } },
                     { new: true, runValidators: true }
                 );
 
-                return updatedUser;
+                return updatedRequest;
             }
 
             throw new AuthenticationError('You need to be logged in!');
