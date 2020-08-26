@@ -22,15 +22,15 @@ const userSchema = new Schema(
         },
         name: {
             type: String,
-            required: true
+            required: false
         },
         location: {
             type: String,
-            required: true
+            required: false
         },
         number: {
             type: String,
-            required: true
+            required: false
         },
         requests: [
             {

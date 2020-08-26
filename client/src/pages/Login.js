@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 import { useMutation } from '@apollo/react-hooks';
 import { LOGIN_USER } from '../utils/mutations';
 import Auth from '../utils/auth';
+import { Form, Button } from 'react-bootstrap';
 
-const Login = (props) => {
-  const [formState, setFormState] = useState({ email: '', password: '' });
+function Login(props) {
+  const [loginState, setLoginState] = useState({ email: '', password: '' });
 
   const [login, { error }] = useMutation(LOGIN_USER);
 
@@ -12,10 +13,7 @@ const Login = (props) => {
   const handleChange = (event) => {
     const { name, value } = event.target;
 
-    setFormState({
-      ...formState,
-      [name]: value,
-    });
+    setLoginState({ ...loginState, [name]: value });
   };
 
   // submit form
@@ -23,9 +21,7 @@ const Login = (props) => {
     event.preventDefault();
 
     try {
-      const { data } = await login({
-        variables: { ...formState }
-      });
+      const { data } = await login({ variables: { ...loginState } });
     
       Auth.login(data.login.token);
     } catch (e) {
@@ -34,39 +30,27 @@ const Login = (props) => {
   };
 
   return (
+    <Form>
     <main className='flex-row justify-center mb-4'>
       <div className='col-12 col-md-6'>
         <div className='card'>
           <h4 className='card-header'>Login</h4>
           <div className='card-body'>
-            <form onSubmit={handleFormSubmit}>
-              <input
-                className='form-input'
-                placeholder='Your email'
-                name='email'
-                type='email'
-                id='email'
-                value={formState.email}
-                onChange={handleChange}
-              />
-              <input
-                className='form-input'
-                placeholder='******'
-                name='password'
-                type='password'
-                id='password'
-                value={formState.password}
-                onChange={handleChange}
-              />
-              <button className='btn d-block w-100' type='submit'>
-                Submit
-              </button>
-            </form>
+            <Form.Group onSubmit={handleFormSubmit}>
+              <Form.Label>Email address</Form.Label>
+              <Form.Control type="email" placeholder="name@example.com" name='email' id="email" value={loginState.email} onChange={handleChange} />
+            </Form.Group>
+            <Form.Group>
+              <Form.Label>Password</Form.Label>
+              <Form.Control type="password" placeholder="*******" name='password' id='password' value={loginState.password} onChange={handleChange}/>
+            </Form.Group>
+            <Button variant='primary' onClick={handleFormSubmit}>Login</Button>
             {error && <div>Login failed</div>}
           </div>
         </div>
       </div>
     </main>
+    </Form>
   );
 };
 

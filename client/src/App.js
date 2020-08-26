@@ -1,23 +1,22 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-
-// add these two library import statements
 import { ApolloProvider } from '@apollo/react-hooks';
 import ApolloClient from 'apollo-boost';
-
-import Header from './components/Header';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import Navbar from './components/Nav';
+import Request from './pages/Request';
+import About from './pages/About';
+// import Contact from './components/Contact';
+import Donations from './pages/Donations';
 import Footer from './components/Footer';
-import Nav from './components/Nav';
-
+// import Header from './components/Header';
 import Login from './pages/Login';
-import NoMatch from './pages/NoMatch';
-import SingleRequest from './pages/SingleRequest';
 import Profile from './pages/Profile';
 import Signup from './pages/Signup';
+// import SingleRequest from './pages/SingleRequest';
+import NoMatch from './pages/NoMatch';
 
 
-import Donations from './pages/Donations';
-import Home from './pages/Home';
+
 
 const client = new ApolloClient({
   request: operation => {
@@ -27,7 +26,7 @@ const client = new ApolloClient({
       headers: {
         authorization: token ? `Bearer ${token}` : ''
       }
-    });
+    })
   },
   uri: '/graphql'
 });
@@ -35,27 +34,23 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-      <Router>
-        <div className="flex-column justify-flex-start min-100-vh">
-         <Nav/>
-          <Header />
-          <div className="container">
+        <Router>
+          <>
+            <Navbar />
             <Switch>
-            {/* <Route exact path="/" component={About} /> */}
-              <Route exact path="/home" component={Home} />
+              <Route exact path="/" component={About} />
+              <Route exact path="/about" component={About} />
+              <Route exact path="/donations" component={Donations} />
               <Route exact path="/login" component={Login} />
               <Route exact path="/signup" component={Signup} />
+              <Route exact path="/request" component={Request} />
               <Route exact path="/profile/:username?" component={Profile} />
-              <Route exact path="/request/:id" component={SingleRequest} />
-              //<Route exact path="/Donations" component={Donations} />
-              
 
               <Route component={NoMatch} />
             </Switch>
-          </div>
+          </>
           <Footer />
-        </div>
-      </Router>
+        </Router>
     </ApolloProvider>
   );
 }

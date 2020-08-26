@@ -1,41 +1,75 @@
 import React from 'react';
 
-import { Link } from 'react-router-dom';
 
-const ThoughtList = ({ requests, title }) => {
-  if (!requests.length) {
-    return <h3>No Requests Yet</h3>;
-  }
+import { Form, Button } from 'react-bootstrap';
 
-  return (
-    <div>
-      <h3>{title}</h3>
-      {requests &&
-        requests.map(request => (
-          <div key={request._id} className="card mb-3">
-            <p className="card-header">
-              <Link
-                to={`/profile/${request.username}`}
-                style={{ fontWeight: 700 }}
-                className="text-light"
-              >
-                {request.username}
-              </Link>{' '}
-              Request on {request.createdAt}
-            </p>
-            <div className="card-body">
-              <Link to={`/thought/${request._id}`}>
-                <p>{request.requestText}</p>
-                <p className="mb-0">
-                  Reactions: {requests.reactionCount} || Click to{' '}
-                  {request.reactionCount ? 'see' : 'start'} the discussion!
-                </p>
-              </Link>
-            </div>
-          </div>
-        ))}
-    </div>
-  );
-};
+function Volunteer() {   
 
-export default ThoughtList;
+
+    return (
+        <>
+          <Form>
+            <Form.Group className="col-md-4 mx-auto">
+              <Form.Label htmlFor='email'>First Name</Form.Label>
+              <Form.Control
+                type='text'
+                placeholder='Enter your First Name!'
+                name='First'
+                required
+              />
+              <Form.Control.Feedback type='invalid'>Name Required</Form.Control.Feedback>
+              <Form.Label htmlFor='email'> Last Name</Form.Label>
+              <Form.Control
+                type='text'
+                placeholder='Enter your Last Name'
+                name='Last'
+                required
+              />
+            </Form.Group>
+    
+            <Form.Group className="col-md-4 mx-auto">
+              <Form.Label htmlFor='password'>Email</Form.Label>
+              <Form.Control
+                type='text'
+                placeholder='Enter your email!'
+                name='Email'
+                required
+              />
+              <Form.Label htmlFor='email'>Phone Number</Form.Label>
+              <Form.Control
+                type='text'
+                placeholder='Enter Your Number!'
+                name='Number'
+                required
+              />
+              <Form.Label htmlFor='email'>City</Form.Label>
+              <Form.Control
+                type='text'
+                placeholder='Enter Your City!'
+                name='City'
+                required
+              />
+              
+            </Form.Group>
+            
+            <Form.Group className="col-md-4 mx-auto">
+            
+              <Button 
+                type='submit'
+                variant='primary'>
+                Submit
+              </Button>
+              
+            </Form.Group>
+            <input type="checkbox" name="volunteer" />
+                  <label htmlFor="volunteer"> I am a Volunteer</label>
+          </Form>
+        </>
+      );
+    };
+    
+       
+    
+
+
+export default Volunteer; 

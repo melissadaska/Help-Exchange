@@ -1,15 +1,13 @@
 import React, { useState } from 'react';
-
 import { useMutation } from '@apollo/react-hooks';
 import { ADD_REQUEST } from '../../utils/mutations';
-
 import { QUERY_REQUESTS, QUERY_ME } from '../../utils/queries';
 
-const ThoughtForm = () => {
+const RequestForm = () => {
   const [requestText, setText] = useState('');
   const [characterCount, setCharacterCount] = useState(0);
   const [addRequest, { error }] = useMutation(ADD_REQUEST, {
-    update(cache, { data: { addThought } }) {
+    update(cache, { data: { addRequest } }) {
       try {
         // could potentially not exist yet, so wrap in a try...catch
         const { requests } = cache.readQuery({ query: QUERY_REQUESTS });
@@ -78,4 +76,4 @@ const ThoughtForm = () => {
   );
 };
 
-export default ThoughtForm;
+export default RequestForm;

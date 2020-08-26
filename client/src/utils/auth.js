@@ -1,54 +1,48 @@
+// decode a token and get user info
 import decode from 'jwt-decode';
 
+// create new class instantiate for user
 class AuthService {
-    // retrieve data saved in token
     getProfile() {
-      return decode(this.getToken());
+        return decode(this.getToken());
     }
-  
-    // check if the user is still logged in
+
+    // check if user is logged in
     loggedIn() {
-      // Checks if there is a saved token and it's still valid
-      const token = this.getToken();
-      // use type coersion to check if token is NOT undefined and the token is NOT expired
-      return !!token && !this.isTokenExpired(token);
+        // check for saved token and validity
+        const token = this.getToken();
+        return  !!token && !this.isTokenExpired(token); 
     }
-  
-    // check if the token has expired
+
+    // check if token expired
     isTokenExpired(token) {
-      try {
-        const decoded = decode(token);
-        if (decoded.exp < Date.now() / 1000) {
-          return true;
-        } else {
-          return false;
+        try {
+            const decoded = decode(token);
+            if(decoded.exp < Date.now() / 1000) {
+                return true;
+            } else return false;
+        } catch (err) {
+            return false;
         }
-      } catch (err) {
-        return false;
-      }
     }
-  
-    // retrieve token from localStorage
+
     getToken() {
-      // Retrieves the user token from localStorage
-      return localStorage.getItem('id_token');
+        // retrieve user token from localStorage
+        return localStorage.getItem('id_token');
     }
-  
-    // set token to localStorage and reload page to homepage
+
     login(idToken) {
-      // Saves user token to localStorage
-      localStorage.setItem('id_token', idToken);
-  
-      window.location.assign('/');
+        // save user token to localStorage
+        localStorage.setItem('id_token', idToken);
+        window.location.assign('/');
     }
-  
-    // clear token from localStorage and force logout with reload
+
     logout() {
-      // Clear user token and profile data from localStorage
-      localStorage.removeItem('id_token');
-      // this will reload the page and reset the state of the application
-      window.location.assign('/');
+        // clear user token and profile data from localStorage
+        localStorage.removeItem('id_token');
+        // reload page and reset state of app
+        window.location.assign('/');
     }
-  }
+}
 
 export default new AuthService();

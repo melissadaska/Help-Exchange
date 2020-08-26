@@ -45,23 +45,26 @@ export const DELETE_USER = gql`
 `;
 
 export const ADD_REQUEST = gql`
-  mutation addRequest($username: String!, $title: String!){
-    addRequest(username: $username, title: $title) {
+  mutation addRequest($title: String!){
+    addRequest(title: $title) {
         _id
         title
-        why
         createdAt
         username
     }
-  }      
+  }
 `
 
 export const ADD_VOLUNTEER = gql`
-    mutation addVolunteer($userId: ID!) {
-        addVolunteer(userId: $userId) {
+    mutation addVolunteer($userId: ID!, $volunteerBody: String!) {
+        addVolunteer(userId: $userId, volunteerBody: $volunteerBody) {
             _id
-            username
-            available
+            volunteer {
+              _id
+              volunteerBody
+              createAt
+              username
+            }
         }
     }
 `

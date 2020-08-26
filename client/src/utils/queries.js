@@ -6,13 +6,9 @@ export const QUERY_ME = gql`
             _id
             username
             email
-            name
-            location
-            number
             requests {
                 _id
                 title
-                why
                 createdAt
                 username
             }
@@ -33,9 +29,9 @@ export const QUERY_USER = gql`
       email
       requests {
         _id
-        requestText
+        title
         createdAt
-        requestCount
+        username
       }
     }
   }
@@ -47,9 +43,6 @@ export const QUERY_ME_BASIC = gql`
             _id
             username
             email
-            name
-            location
-            number
             volunteer {
                 _id
                 username
@@ -59,25 +52,24 @@ export const QUERY_ME_BASIC = gql`
     }
 `;
 
-export const QUERY_REQUESTS = gql`
-  query requests($username: String) {
-    requests(username: $username) {
-      _id
-      requestsText
-      createdAt
-      username
+export const QUERY_REQUEST = gql`
+    query request($id: ID!) {
+        request(_id: $id) {
+            _id
+            title
+            createdAt
+            username
+        }
     }
-  }
 `;
 
-export const QUERY_REQUEST = gql`
-  query request($id: ID!) {
-    request(_id: $id) {
-      _id
-      requestText
-      createdAt
-      username
-      
+export const QUERY_REQUESTS = gql`
+    query requests($username: String) {
+        requests(username: $username) {
+            _id
+            title
+            createdAt
+            username
+        }
     }
-  }
 `;

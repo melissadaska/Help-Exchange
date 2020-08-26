@@ -1,12 +1,10 @@
 import React, { useState } from 'react';
-
-import Auth from '../utils/auth';
-
 import { useMutation } from '@apollo/react-hooks';
 import { ADD_USER } from '../utils/mutations';
+import Auth from '../utils/auth';
 
-const Signup = () => {
-  const [formState, setFormState] = useState({ username: '', email: '', password: '' });
+function Signup() {
+  const [formState, setFormState] = useState({ username: '', email: '', password: '', name: '', location: '', number: '' });
 
   const [addUser, { error }] = useMutation(ADD_USER);
 
@@ -45,7 +43,7 @@ const Signup = () => {
             <form onSubmit={handleFormSubmit}>
               <input
                 className='form-input'
-                placeholder='Your username'
+                placeholder='Username'
                 name='username'
                 type='username'
                 id='username'
@@ -54,7 +52,7 @@ const Signup = () => {
               />
               <input
                 className='form-input'
-                placeholder='Your email'
+                placeholder='Email'
                 name='email'
                 type='email'
                 id='email'
@@ -63,11 +61,37 @@ const Signup = () => {
               />
               <input
                 className='form-input'
-                placeholder='******'
+                placeholder='Password'
                 name='password'
                 type='password'
                 id='password'
                 value={formState.password}
+                onChange={handleChange}
+              />
+              <input
+                className='form-input'
+                placeholder='Name'
+                name='name'
+                type='name'
+                id='name'
+                value={formState.name}
+                onChange={handleChange}
+              />
+              <input
+                className='form-input'
+                placeholder='Location'
+                name='location'
+                type='location'
+                id='location'
+                value={formState.location}
+                onChange={handleChange}
+              />
+              <input
+                className='form-input'
+                placeholder='Number'
+                name='number'
+                id='number'
+                value={formState.number}
                 onChange={handleChange}
               />
               <button className='btn d-block w-100' type='submit'>
