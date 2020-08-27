@@ -20,7 +20,7 @@ function Navigation() {
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
-            <Nav className="">
+            <Nav>
                 <Nav.Link className='nav-link' href="/about">
                     <img 
                         src="https://img.icons8.com/ios-filled/50/000000/info.png"
@@ -30,13 +30,13 @@ function Navigation() {
                         />
                         About Us
                 </Nav.Link>
-                <Nav.Link className='nav-link' href="/Volunteer">
+                {/* <Nav.Link className='nav-link' href="/Volunteer">
                     <img src="https://img.icons8.com/cotton/64/000000/volunteering.png"
                     alt='volunteer'
                     width='50'
                     height='50'/>
                         Volunteer
-                </Nav.Link>
+                </Nav.Link> */}
                 <Nav.Link className='nav-link' href="/request">
                     <img src="https://img.icons8.com/ios-filled/50/000000/connectivity-and-help.png"
                     alt='request-help'
