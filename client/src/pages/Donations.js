@@ -8,5 +8,3 @@ function Donations() {
 
 
 export default Donations;
-
-
