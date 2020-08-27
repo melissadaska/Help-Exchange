@@ -11,7 +11,7 @@ body {
   --secondary: #060108;
   --tertiary: #b2c2c1;
   --quatrinary: #a4b6b5;
-  --light: #9faaaa;
+  --light: white;
   --dark: #b8a8c4;
   --error: rgb(138, 31, 4);
   --border-radius: 0.3rem;
