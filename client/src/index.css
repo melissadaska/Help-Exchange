@@ -11,8 +11,8 @@ body {
   --secondary: #060108;
   --tertiary: #b2c2c1;
   --quatrinary: #a4b6b5;
-  --light: white;
-  --dark: #b8a8c4;
+  --light: #9faaaa;
+  --dark: #693d8a;
   --error: rgb(138, 31, 4);
   --border-radius: 0.3rem;
   --spacing-one: calc(1rem * 0.25);

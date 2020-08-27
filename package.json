@@ -1,7 +1,7 @@
 {
   "name": "help-exchange",
   "version": "0.1.0",
-  "main": "server/server.js",
+  "private": true,
   "dependencies": {
     "@apollo/react-hooks": "^4.0.0",
     "@testing-library/jest-dom": "^4.2.4",
@@ -34,12 +34,8 @@
     "start:dev": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
     "install": "cd server && npm i && cd ../client && npm i",
     "seed": "cd server && npm run seed",
-    "heroku-postbuild": "cd client && npm run build",
-    "watch": "nodemon server.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/andytheelf/Help-Exchange.git"
+    "watch": "nodemon server.js",
+    "heroku-postbuild": "cd client && npm run build"
   },
   "eslintConfig": {
     "extends": "react-app"
