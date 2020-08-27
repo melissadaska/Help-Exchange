@@ -1,8 +1,8 @@
-  
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/react-hooks';
 import { ADD_USER } from '../utils/mutations';
 import Auth from '../utils/auth';
+import { Form, Button, Card } from 'react-bootstrap';
 
 function Signup() {
   const [formState, setFormState] = useState({ username: '', email: '', password: '', name: '', location: '', number: '' });
@@ -36,12 +36,13 @@ function Signup() {
   };
 
   return (
+    <Form>
     <main className='flex-row justify-center mb-4'>
       <div className='col-12 col-md-6'>
-        <div className='card'>
-          <h4 className='card-header'>Sign Up</h4>
-          <div className='card-body'>
-            <form onSubmit={handleFormSubmit}>
+        <Card>
+          <Card.Header>Sign Up</Card.Header>
+          <Card.Body>
+            <Form.Group onSubmit={handleFormSubmit}>
               <input
                 className='form-input'
                 placeholder='Username'
@@ -51,6 +52,8 @@ function Signup() {
                 value={formState.username}
                 onChange={handleChange}
               />
+            </Form.Group>
+            <Form.Group>
               <input
                 className='form-input'
                 placeholder='Email'
@@ -60,6 +63,8 @@ function Signup() {
                 value={formState.email}
                 onChange={handleChange}
               />
+              </Form.Group>
+              <Form.Group>
               <input
                 className='form-input'
                 placeholder='Password'
@@ -69,6 +74,8 @@ function Signup() {
                 value={formState.password}
                 onChange={handleChange}
               />
+              </Form.Group>
+              <Form.Group>
               <input
                 className='form-input'
                 placeholder='Name'
@@ -78,6 +85,8 @@ function Signup() {
                 value={formState.name}
                 onChange={handleChange}
               />
+              </Form.Group>
+              <Form.Group>
               <input
                 className='form-input'
                 placeholder='Location'
@@ -87,6 +96,8 @@ function Signup() {
                 value={formState.location}
                 onChange={handleChange}
               />
+              </Form.Group>
+              <Form.Group>
               <input
                 className='form-input'
                 placeholder='Number'
@@ -95,15 +106,16 @@ function Signup() {
                 value={formState.number}
                 onChange={handleChange}
               />
-              <button className='btn d-block w-100' type='submit'>
+              </Form.Group>
+              <Button className='btn d-block w-100' type='submit'>
                 Submit
-              </button>
-            </form>
+              </Button>
             {error && <div>Sign up failed</div>}
-          </div>
-        </div>
+          </Card.Body>
+        </Card>
       </div>
     </main>
+    </Form>
   );
 };
 
