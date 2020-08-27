@@ -1,6 +1,6 @@
 import React from 'react';
 import { useQuery } from '@apollo/react-hooks';
-import RequestList from '../components/RequestList';
+// import RequestList from '../components/RequestList';
 import { QUERY_REQUESTS } from '../utils/queries';
 import Auth from '../utils/auth';
 
@@ -20,11 +20,11 @@ function Home() {
     <main>
       <div className="flex-row justify-space-between">
         <div className={`col-12 mb-3 ${loggedIn && 'col-lg-8'}`}>
-          {loading ? (
+          {/* {loading ? (
             <div>Loading...</div>
           ) : (
             <RequestList requests={requests} title="Here are the requests" />
-          )}
+          )} */}
         </div>
       </div>
     </main>
