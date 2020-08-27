@@ -6,6 +6,9 @@ export const QUERY_ME = gql`
             _id
             username
             email
+            number
+            location
+            name
             requests {
                 _id
                 title

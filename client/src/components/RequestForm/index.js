@@ -4,7 +4,7 @@ import { ADD_REQUEST } from '../../utils/mutations';
 import { QUERY_REQUESTS, QUERY_ME } from '../../utils/queries';
 
 const RequestForm = () => {
-  const [requestText, setText] = useState('');
+  const [title, setTitle] = useState('');
   const [characterCount, setCharacterCount] = useState(0);
   const [addRequest, { error }] = useMutation(ADD_REQUEST, {
     update(cache, { data: { addRequest } }) {
@@ -30,7 +30,7 @@ const RequestForm = () => {
 
   const handleChange = event => {
     if (event.target.value.length <= 280) {
-      setText(event.target.value);
+      setTitle(event.target.value);
       setCharacterCount(event.target.value.length);
     }
   };
@@ -41,11 +41,11 @@ const RequestForm = () => {
     try {
       // add thought to database
       await addRequest({
-        variables: { requestText }
+        variables: { title }
       });
   
       // clear form value
-      setText('');
+      setTitle('');
       setCharacterCount(0);
     } catch (e) {
       console.error(e);
@@ -64,7 +64,7 @@ const RequestForm = () => {
       >
         <textarea
           placeholder="New Request"
-          value={requestText}
+          value={title}
           className="form-input col-12 col-md-9"
           onChange={handleChange}
         ></textarea>
@@ -76,4 +76,6 @@ const RequestForm = () => {
   );
 };
 
+
 export default RequestForm;
+
