@@ -16,7 +16,7 @@ const RequestList = ({ requests, title }) => {
                     <Link
                         to={`/profile/${request.username}`}
                         style={{ fontWeight: 700 }}
-                        className=""
+                        className="text-decoration-none"
                     >
                         {request.username}
                     </Link>{' '}

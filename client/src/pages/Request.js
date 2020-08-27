@@ -18,9 +18,9 @@ function Home() {
 
     return (
       <main>
-        <div className='flex-row justify-space-between'>
+        <div className='flex-row justify-content-center'>
           {loggedIn && (
-            <div className="col-12 mb-3">
+            <div className="col-12 mb-3 col-lg-8">
               <RequestForm/>
             </div>
           )}
@@ -28,7 +28,7 @@ function Home() {
           {loading? (
             <div> Loading...</div>
           ):(
-            <RequestList requests={requests} title="Requests here..."/>
+            <RequestList requests={requests} title="REQUESTS:"/>
           )}
           </div>
           {/* {loggedIn && userData ? (
