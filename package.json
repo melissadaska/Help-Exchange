@@ -33,9 +33,9 @@
     "start:prod": "cd server && npm start",
     "start:dev": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
     "install": "cd server && npm i && cd ../client && npm i",
+    "heroku-postbuild": "cd client && npm run build",
     "seed": "cd server && npm run seed",
-    "watch": "nodemon server.js",
-    "heroku-postbuild": "cd client && npm run build"
+    "watch": "nodemon server.js"
   },
   "eslintConfig": {
     "extends": "react-app"
