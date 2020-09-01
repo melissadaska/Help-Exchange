@@ -1,10 +1,43 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Card, Button } from 'react-bootstrap';
+import { DELETE_REQUEST } from '../../utils/mutations';
+import { useMutation } from '@apollo/react-hooks';
+import Auth from '../../utils/auth';
+import { removeRequestId } from '../../utils/localStorage';
+
+
 const RequestList = ({ requests, title }) => {
   if (!requests.length) {
     return <h3>No Requests Yet</h3>;
   }
+  const [userData, setUserData] = useState({});
+
+  const { deleteRequest } = useMutation(DELETE_REQUEST);
+
+  const handleDeleteRequest = async (requestId) => {
+
+    const token = Auth.loggedIn() ? Auth.getToken() : null;
+
+    if (!token) {
+      return false;
+    }
+
+    try {
+      const response = await deleteRequest(requestId, token);
+
+      if (!response.ok) {
+        throw new Error('something went wrong!');
+      }
+
+      const updatedUser = await response.json();
+      setUserData(updatedUser);
+      // upon success, remove book's id from localStorage
+      removeRequestId(requestId);
+    } catch (err) {
+      console.error(err);
+    }
+  };
 
   return (
       <div>
@@ -16,7 +49,7 @@ const RequestList = ({ requests, title }) => {
                     <Link
                         to={`/profile/${request.username}`}
                         style={{ fontWeight: 700 }}
-                        className=""
+                        className="text-decoration-none"
                     >
                         {request.username}
                     </Link>{' '}
@@ -31,6 +64,9 @@ const RequestList = ({ requests, title }) => {
                         {request.volunteerCount ? 'see' : 'start'} the discussion!
                         </Card.Text>
                     </Link>
+                    <Button className='btn-block btn-danger' onClick={() => handleDeleteRequest(request.requestId)}>
+                    Delete Request
+                  </Button>
             </Card.Body>
           </Card>
         ))}

@@ -73,3 +73,18 @@ export const ADD_VOLUNTEER = gql`
         }
     }
 `
+
+export const DELETE_REQUEST = gql`
+  mutation deleteRequest($requestId: String!) {
+    deleteRequest(requestId: $requestId) {
+        _id
+        title
+        createdAt
+        username
+        volunteerCount
+        volunteers {
+          _id
+        }
+    }
+  }
+`

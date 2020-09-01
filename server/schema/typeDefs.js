@@ -39,6 +39,7 @@ const typeDefs = gql`
         deleteUser(_id: ID!): User!
         addRequest(title: String!): Request
         addVolunteer(requestId: ID!, volunteerBody: String!): Request
+        deleteRequest(requestId: ID!): Request
     }
     type Auth {
         token: ID!
