@@ -1,6 +1,6 @@
 import React from 'react';
 import { Redirect, useParams } from 'react-router-dom';
-import { Card, Button, ListGroup, Form } from 'react-bootstrap';
+import { Card, ListGroup, Form } from 'react-bootstrap';
 import RequestList from '../components/RequestList';
 import RequestForm from '../components/RequestForm';
 import Auth from '../utils/auth';
@@ -34,11 +34,10 @@ function Profile() {
   }
 
   return (
-    <Card className="w-75 ml-5 bg-secondary">
+    <Card className="w-50 mx-auto bg-secondary">
       <Card.Header className="bg-dark text-secondary p-3 display-inline-block">
-        Viewing {userParam ? `${user.username}'s` : 'your'} profile.
+        Viewing {`${user.username}'s`} Profile
       </Card.Header>
-      <Card.Title className="text-center justify-content-center mt-2">{userParam ? `${user.username}'s` : `${user.username} Personal Information`}</Card.Title>
           <Card.Body className="justify-content-center w-50">
           <ListGroup className="list-group">
             <Form.Text className="">Name</Form.Text>
@@ -50,11 +49,11 @@ function Profile() {
           </ListGroup>
           </Card.Body>
         
-        <Card.Body className="col-12 mb-3 col-lg-8">
+        <Card.Body className="col-12 mb-3 col-lg-12">
           <RequestList requests={user.requests} title={`${user.username}'s requests...`} />
         </Card.Body>
-      <Card.Body className="mb-3"> {!userParam && <RequestForm/>}</Card.Body>
-      </Card>
+      <Card.Body className="col-12 mb-3 col-lg-12"> {!userParam && <RequestForm/>}</Card.Body>
+    </Card>
   );
 };
 

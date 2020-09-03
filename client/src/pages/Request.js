@@ -4,6 +4,7 @@ import RequestList from '../components/RequestList';
 import { QUERY_REQUESTS } from '../utils/queries';
 import Auth from '../utils/auth';
 import RequestForm from '../components/RequestForm';
+import { Card } from 'react-bootstrap';
 
 
 function Home() {
@@ -24,11 +25,15 @@ function Home() {
               <RequestForm/>
             </div>
           )}
-          <div className={`col-12 mb-3 ${loggedIn && 'col-lg-8'}`}>
+          <div className={`${loggedIn && 'col-12 mb-3 col-lg-8'}`}>
           {loading? (
             <div> Loading...</div>
           ):(
-            <RequestList requests={requests} title="REQUESTS:"/>
+            <div>
+              <span style={{fontWeight: 700 }} className="bg-dark text-light p-3 display-inline-block">VIEWING ALL REQUESTS:
+              </span>
+            <RequestList requests={requests}/>
+            </div>
           )}
           </div>
           {/* {loggedIn && userData ? (
