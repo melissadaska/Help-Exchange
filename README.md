@@ -12,9 +12,9 @@
 <h2 align="center">Page Views</h2>  
 
 <p align='center'>
-    <img src="./assets/help.jpg" alt="help1"/>
-    <img src="./assets/help2.jpg" alt="help2"/>
-    <img src="./assets/help3.jpg" alt="help2"/>
+    <img src="/assets/help1.JPG" alt="help1"/>
+    <img src="/assets/help2.jpg" alt="help2"/>
+    <img src="/assets/help3.jpg" alt="help2"/>
 </p>  
 
 ## Table of Contents
