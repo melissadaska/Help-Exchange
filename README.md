@@ -13,8 +13,8 @@
 
 <p align='center'>
     <img src="/assets/help1.JPG" alt="help1"/>
-    <img src="/assets/help2.jpg" alt="help2"/>
-    <img src="/assets/help3.jpg" alt="help2"/>
+    <img src="/assets/help2.JPG" alt="help2"/>
+    <img src="/assets/help3.JPG" alt="help3"/>
 </p>  
 
 ## Table of Contents
