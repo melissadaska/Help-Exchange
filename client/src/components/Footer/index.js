@@ -2,7 +2,7 @@ import React from 'react';
 
 function Footer() {   
     return (
-    <div className="footer justify-content-between" id="footer" style={{ bottom: '0', width: '100%', padding: '2px', marginTop: '50px' }}>
+    <div className="footer text-center justify-content-between" id="footer" style={{ bottom: '0', width: '100%', padding: '2px', marginTop: '50px'}}>
         <div style={{ float:'center'}}>
 
             <img src="https://img.icons8.com/dusk/64/000000/moleskine.png" alt='footer'/>

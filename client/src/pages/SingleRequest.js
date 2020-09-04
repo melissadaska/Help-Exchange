@@ -21,8 +21,8 @@ function SingleRequest (props) {
   }
 
   return (
-    <div>
-      <div className="card mb-3">
+    <div className='flex-row justify-content-center'>
+      <div className="card col-12 mb-3 col-lg-8">
         <p className="card-header">
           <span style={{ fontWeight: 700 }} className="text-light">
             {request.username}
@@ -33,9 +33,10 @@ function SingleRequest (props) {
           <p>{request.title}</p>
         </div>
       </div>
-
+      <div className='col-12 mb-3 col-lg-8'>
       {request.volunteerCount > 0 && <VolunteerList volunteers={request.volunteers} />}
        {Auth.loggedIn() && <VolunteerForm requestId={request._id} />}
+       </div>
     </div>
   );
 };
