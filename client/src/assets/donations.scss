@@ -1,0 +1,37 @@
+ .container__card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .donations__card__image {
+    object-position: center;
+    height: auto; 
+    width: auto; 
+    max-width: 850px; 
+    max-height: 450px;
+   }
+ 
+  
+  
+
+
+  
+  @media (min-width: 900px) {
+    .container__card {
+      flex-wrap: wrap;
+      flex-direction: row;
+      max-width: 1200px;
+      width: 100%;      
+      margin: 5vh auto;
+    }
+
+    .donations__card__image {
+      flex: 1 0 50%;
+      height: 600px;
+    }
+    .donations__card__content {
+      flex: 1 0 50%;
+    }
+  }
+  
