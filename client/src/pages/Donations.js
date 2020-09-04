@@ -4,7 +4,6 @@ import '../assets/donations.scss';
 
 function Donations() {   
     return (
-        // <div>Here you can donate!</div>
         <div className="container__card">
         <img className="donations__card__image" src={BalloonsImage} alt="" />
         </div>

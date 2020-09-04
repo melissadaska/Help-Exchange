@@ -107,7 +107,7 @@ function Signup() {
                 onChange={handleChange}
               />
               </Form.Group>
-              <Button className='btn d-block w-100' type='submit'>
+              <Button className='btn d-block w-100' onClick={handleFormSubmit}>
                 Submit
               </Button>
             {error && <div>Sign up failed</div>}

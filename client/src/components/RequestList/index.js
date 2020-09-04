@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Card, Button } from 'react-bootstrap';
+import { Card } from 'react-bootstrap';
 const RequestList = ({ requests, title }) => {
   if (!requests.length) {
     return <h3>No Requests Yet</h3>;
@@ -16,10 +16,12 @@ const RequestList = ({ requests, title }) => {
                     <Link
                         to={`/profile/${request.username}`}
                         style={{ fontWeight: 700 }}
-                        className=""
+                        className="text-decoration-none"
                     >
-                        {request.username}
-                    </Link>{' '}
+                    </Link>{''}
+                    <span style={{ fontWeight: 700 }} className="text-light">
+                      {request.username}
+                    </span>{' '}
                      request on {request.createdAt}
                 </Card.Header>
             <Card.Body>
