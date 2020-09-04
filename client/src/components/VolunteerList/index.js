@@ -10,8 +10,8 @@ const VolunteerList = ({ volunteers }) => {
     <div className="card-body">
       {volunteers &&
         volunteers.map(volunteer => (
-          <p className="pill mb-3" key={volunteer._id}>
-            {volunteer.volunteerBody} {'// '}
+          <p className="mb-3" key={volunteer._id}>
+            {volunteer.volunteerBody} {''}
             <Link to={`/profile/${volunteer.username}`} style={{ fontWeight: 700 }}>
               {volunteer.username} on {volunteer.createdAt}
             </Link>
