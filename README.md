@@ -1,68 +1,44 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<h1 align="center">Help Exchange</h1>
 
-## Available Scripts
+<p align="center">
+    <img src="https://img.shields.io/badge/React-brightgreen"/>
+     <img src="https://img.shields.io/badge/API-blue"/>
+    <img src="https://img.shields.io/badge/GraphQL-red"/>
+    <img src="https://img.shields.io/badge/Node.js/Express.js-orange"/>
+    <img src="https://img.shields.io/badge/ApolloServer-success"/>
+    <img src="https://img.shields.io/badge/MongoDB-yellow"/>
+</p>  
 
-In the project directory, you can run:
+<h2 align="center">Page Views</h2>  
 
-### `npm start`
+<p align='center'>
+    <img src="/assets/help1.png" alt="help1"/>
+    <img src="/assets/help2.png" alt="help2"/>
+    <img src="/assets/help3.png" alt="help3"/>
+</p>  
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Table of Contents
+- [Description](#description)
+- [Installation](#install)
+- [Usage](#usage)
+- [Questions](#questions)
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## Description
+Help Exchange is an application for users to reach out for help within their communites!  A user can fill out a sign up form to create an account. User can login to their account and access the requests that they have made. Users can add a comment/ volunteer to accept a request. We wanted to create a space for our users to reach out for help in times of need! 
+  
 
-### `npm test`
+### Heroku Deploy
+[Help Exchange](https://rocky-retreat-38962.herokuapp.com/) 
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+## Questions?
+### Github Accounts!
+#### [Melissa Daskalantonakis for Github](https://github.com/melissadaska)
+#### [Andrea Ballew for Github](https://github.com/andytheelf)
+#### [Nick Kosik for GitHub](https://github.com/Thor40) 
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Emails!  
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+#### melissa.daska@gmail.com for ✉️ email 
+#### ballew22@gmail.com for ✉️ email  
+#### Nicholas.kosik@gmail.com for ✉️ email 
